@@ -3,7 +3,7 @@ namespace pxt.Cloud {
 
     // hit /api/ to stay on same domain and avoid CORS
     ////  Change hostname for API.
-    export let apiRoot = isLocalHost() || Util.isNodeJS ? "https://visualbluepill.github.io/api/" : "/api/"; ////
+    export let apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://visualbluepill.github.io/api/" : "/api/"; ////
     ////export let apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://www.makecode.com/api/" : "/api/";
     export let accessToken = "";
     export let localToken = "";
