@@ -161,9 +161,11 @@ export function needsGitCleanAsync() {
 }
 
 function nodeHttpRequestAsync(options: Util.HttpRequestOptions): Promise<Util.HttpResponse> {
+    console.log('nodeHttpRequestAsync', { ...options, data: options.data ? JSON.stringify(options.data).substr(0, 20) + '...' : null }); ////
     let isHttps = false
 
-    let u = <http.RequestOptions><any>url.parse(options.url)
+    let u = <http.RequestOptions><any>url.parse(options.url.indexOf('clientconfig') > 0 && options.url.indexOf('clientconfig/') < 0 ? options.url + '/' : options.url)////  Append '/' for REST on GitHub Pages.
+    ////let u = <http.RequestOptions><any>url.parse(options.url)
 
     if (u.protocol == "https:") isHttps = true
     /* tslint:disable:no-http-string */
@@ -226,6 +228,7 @@ function nodeHttpRequestAsync(options: Util.HttpRequestOptions): Promise<Util.Ht
                     buffer: buf,
                     text: text
                 }
+                console.log("nodeHttpRequestAsync response", resp); ////
                 return resp;
             }))
         };
