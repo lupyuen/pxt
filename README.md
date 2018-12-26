@@ -1,5 +1,7 @@
 # Microsoft MakeCode
 
+_Updated for STM32 Blue Pill. See https://github.com/lupyuen/stm32bluepill-makecode/blob/master/README.md_
+
 * [Try out the editors in your browser...](https://makecode.com)
 
 [![Build Status](https://travis-ci.org/Microsoft/pxt.svg?branch=master)](https://travis-ci.org/Microsoft/pxt) 
