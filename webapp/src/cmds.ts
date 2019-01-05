@@ -148,6 +148,7 @@ function hidDeployCoreAsync(resp: pxtc.CompileResult, d?: pxt.commands.DeployOpt
     return hidbridge.initAsync()
         .then(dev => dev.reflashAsync(blocks))
         .catch((e) => {
+            console.log(e); ////
             const troubleshootDoc = pxt.appTarget && pxt.appTarget.appTheme && pxt.appTarget.appTheme.appFlashingTroubleshoot;
             if (e.type === "devicenotfound" && d.reportDeviceNotFoundAsync && !!troubleshootDoc) {
                 pxt.tickEvent("hid.flash.devicenotfound");
