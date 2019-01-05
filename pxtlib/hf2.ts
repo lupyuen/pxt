@@ -406,6 +406,7 @@ namespace pxt.HF2 {
             }
             return this.maybeReconnectAsync()
                 .then(() => this.talkAsync(HF2_CMD_START_FLASH))
+                .then(() => this.maybeReconnectAsync())  ////  Allow device to restart and reconnect when booting from Application Mode to Bootloader Mode.
                 .then(() => this.initAsync())
                 .then(() => {
                     if (!this.bootloaderMode)
