@@ -295,7 +295,8 @@ namespace pxt.HF2 {
             return this.io.reconnectAsync()
                 .then(() => this.initAsync())
                 .catch(e => {
-                    if (this.reconnectTries < 5) {
+                    if (this.reconnectTries < 10) {  ////  Increased retries from 5 to 10.
+                    //// if (this.reconnectTries < 5) {
                         this.reconnectTries++
                         log(`error ${e.message}; reconnecting attempt #${this.reconnectTries}`)
                         return Promise.delay(500)
