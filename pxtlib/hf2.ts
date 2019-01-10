@@ -317,7 +317,7 @@ namespace pxt.HF2 {
         }
 
         talkAsync(cmd: number, data?: Uint8Array) {
-            console.log("hf2.talkAsync", cmd); ////
+            console.log("hf2.talkAsync", cmd, data.slice(0, 10).join(' ')); ////
             if (this.io.talksAsync)
                 return this.io.talksAsync([{ cmd, data }])
                     .then(v => v[0])
